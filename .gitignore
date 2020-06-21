@@ -1,0 +1,27 @@
+
+
+
+# for the Version Control with Git task
+/1_Version_Control_with_Git/*.db
+/1_Version_Control_with_Git/*.log
+/1_Version_Control_with_Git/target
+/1_Version_Control_with_Git/bin
+
+
+
+
+
+/target/
+
+# Eclipse STS artifacts
+**/.settings/**
+**/.classpath
+**/.project
+
+# IntelliJ project files
+.idea
+*.iml
+
+# Mac OS files
+.DS_Store
+
