@@ -1,5 +1,6 @@
 package EpamLearn;
 
+import EpamLearn.ClassesModule.CalculationsMainTaskClassesModule;
 import EpamLearn.FundamentalsModule.MainTaskFundamentalsModule;
 import EpamLearn.FundamentalsModule.OptionalTask1FundamentalsModule;
 
@@ -13,6 +14,9 @@ public class Runner {
 
     OptionalTask1FundamentalsModule optionalTask1FundamentalsModule = new OptionalTask1FundamentalsModule();
     optionalTask1FundamentalsModule.runAllTasks();
+
+    CalculationsMainTaskClassesModule calculationsMainTaskClassesModule = new CalculationsMainTaskClassesModule();
+    calculationsMainTaskClassesModule.runAllTasks();
 
 
   }

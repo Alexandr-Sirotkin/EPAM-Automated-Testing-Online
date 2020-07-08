@@ -3,7 +3,6 @@ package EpamLearn.FundamentalsModule;
 
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
@@ -33,7 +32,7 @@ public class OptionalTask1FundamentalsModule {
         array[i] = Integer.parseInt(reader.readLine());
       }
       reader.close();
-    } catch (IOException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
