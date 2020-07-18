@@ -31,7 +31,7 @@ public class OptionalTask1FundamentalsModule {
       for (int i = 0; i < number; i++) {
         array[i] = Integer.parseInt(reader.readLine());
       }
-      reader.close();
+//      reader.close();
     } catch (Exception e) {
       e.printStackTrace();
     }

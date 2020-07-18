@@ -140,7 +140,7 @@ public class CalculationsMainTaskClassesModule {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       String group = reader.readLine();
-      reader.close();
+//      reader.close();
       boolean flag = true;
       for (int i = 0; i < students.length; i++) {
         if (students[i].equalsGroup(group)) {
