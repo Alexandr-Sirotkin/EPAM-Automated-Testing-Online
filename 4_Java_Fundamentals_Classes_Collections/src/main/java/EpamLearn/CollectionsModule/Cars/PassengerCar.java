@@ -14,13 +14,6 @@ public class PassengerCar extends Car {
     this.bodyType = bodyType;
   }
 
-  public PassengerCar() {
-  }
-
-  public CarBodyType getBodyType() {
-    return bodyType;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -15,5 +15,4 @@ public enum Faculty {
   public String getRealNameFaculty() {
     return realNameFaculty;
   }
-
 }

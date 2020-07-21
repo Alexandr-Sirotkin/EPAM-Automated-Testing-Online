@@ -6,19 +6,9 @@ import java.io.InputStreamReader;
 public class CalculationsMainTaskClassesModule {
 
   private final int MAX_COURSE = 5;
-  Student[] students = new Student[6];
+  private static Student[] students = new Student[6];
 
-  public void runAllTasks() {
-    CalculationsMainTaskClassesModule calculationsMainTaskClassesModule = new CalculationsMainTaskClassesModule();
-    calculationsMainTaskClassesModule.createArrayOfStudents();
-    calculationsMainTaskClassesModule.printListOfStudentsOfFaculty();
-    calculationsMainTaskClassesModule.printListOfStudentsForEachFacultyAndCourse();
-    calculationsMainTaskClassesModule.printListOfStudentsWhoWereBornAfterSpecifiedYear();
-    calculationsMainTaskClassesModule.printListOfTrainingGroup();
-  }
-
-  public void createArrayOfStudents() {
-
+  static {
     students[0] = new Student(123456, "Шевчук", "Николай", "Сергеевич", "12.08.1988",
         "Гомель. Советский район", "3750295634562", Faculty.ENERGY, 2, "ТЭ21");
     students[1] = new Student(153753, "Богуш", "Максим", "Максимович", "23.05.1989",
@@ -31,7 +21,14 @@ public class CalculationsMainTaskClassesModule {
         "Гомель. Новобелица", "3750295735781", Faculty.FAIS, 1, "Э11");
     students[5] = new Student(167824, "Корнеев", "Алексей", "Михайлович", "25.12.1989",
         "Гомель. Новобелица", "3750335682043", Faculty.ENERGY, 3, "ТЭ31");
+  }
 
+  public void runAllTasks() {
+    CalculationsMainTaskClassesModule calculationsMainTaskClassesModule = new CalculationsMainTaskClassesModule();
+    calculationsMainTaskClassesModule.printListOfStudentsOfFaculty();
+    calculationsMainTaskClassesModule.printListOfStudentsForEachFacultyAndCourse();
+    calculationsMainTaskClassesModule.printListOfStudentsWhoWereBornAfterSpecifiedYear();
+    calculationsMainTaskClassesModule.printListOfTrainingGroup();
   }
 
   public void printListOfStudentsOfFaculty() {
@@ -41,37 +38,37 @@ public class CalculationsMainTaskClassesModule {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     try {
       String faculty = reader.readLine();
-      String a;
+      String facultyNameInEnglish;
       switch (faculty) {
         case "ФАИС":
-          a = "FAIS";
+          facultyNameInEnglish = "FAIS";
           break;
         case "Энергетический":
-          a = "ENERGY";
+          facultyNameInEnglish = "ENERGY";
           break;
         case "Заочный":
-          a = "IN_ABSENTIA";
+          facultyNameInEnglish = "IN_ABSENTIA";
           break;
         case "Машиностроительный":
-          a = "MACHINE_BUILDING";
+          facultyNameInEnglish = "MACHINE_BUILDING";
           break;
         case "Механико-технологический":
-          a = "MECHANICAL_TECHNOLOGICAL";
+          facultyNameInEnglish = "MECHANICAL_TECHNOLOGICAL";
           break;
         default:
-          a = "Ошибка";
+          facultyNameInEnglish = "Ошибка";
           System.out.println("Неверно задан факультет");
       }
-      faculty = a;
+      faculty = facultyNameInEnglish;
       System.out.println("Cписок студентов заданного факультета:");
-      boolean flag1 = true;
+      boolean thereAreNoStudentsFromTheGivenFaculty = true;
       for (int i = 0; i < students.length; i++) {
         if (students[i].equalsFaculty(faculty)) {
           System.out.println(students[i]);
-          flag1 = false;
+          thereAreNoStudentsFromTheGivenFaculty = false;
         }
       }
-      if (flag1) {
+      if (thereAreNoStudentsFromTheGivenFaculty) {
         System.out.println("Студентов из заданного вами факультета нет.");
       }
       System.out.println();
@@ -84,22 +81,21 @@ public class CalculationsMainTaskClassesModule {
   public void printListOfStudentsForEachFacultyAndCourse() {
     System.out.println("Вывести: b) списки студентов для каждого факультета и курса;");
     System.out.println("Cписки студентов для каждого факультета и курса:");
-
     for (Faculty fac : Faculty.values()) {
       for (int j = 1; j <= MAX_COURSE; j++) {
-        int a = 0;
-        boolean flag = true;
+        int amountOfStudents = 0;
+        boolean weAreInTheListHeader = true;
         for (int i = 0; i < students.length; i++) {
           if (students[i].equalsFacultyCourse(fac, j)) {
-            if (flag) {
+            if (weAreInTheListHeader) {
               System.out
                   .println("Студенты факультета " + students[i].getFaculty() + " " + j + " курса:");
             }
-            flag = false;
+            weAreInTheListHeader = false;
             System.out.println(students[i]);
-            a = a + 1;
+            amountOfStudents = amountOfStudents + 1;
           }
-          if ((i == students.length - 1) && a == 0) {
+          if ((i == students.length - 1) && amountOfStudents == 0) {
             System.out.println(
                 "Студентов факультета " + fac.getRealNameFaculty() + " " + j + " курса нет.");
           }
@@ -116,14 +112,14 @@ public class CalculationsMainTaskClassesModule {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       String year = reader.readLine();
-      boolean flag = true;
+      boolean thereAreNoStudentsMatchingTheRequest = true;
       for (int i = 0; i < students.length; i++) {
         if (students[i].dataOfBirthAfter(year)) {
           System.out.println(students[i]);
-          flag = false;
+          thereAreNoStudentsMatchingTheRequest = false;
         }
       }
-      if (flag) {
+      if (thereAreNoStudentsMatchingTheRequest) {
         System.out.println("Студентов соответствующих запросу нет.");
       }
       System.out.println();
@@ -140,15 +136,14 @@ public class CalculationsMainTaskClassesModule {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       String group = reader.readLine();
-//      reader.close();
-      boolean flag = true;
+      boolean groupDoesNotExist = true;
       for (int i = 0; i < students.length; i++) {
         if (students[i].equalsGroup(group)) {
           System.out.println(students[i]);
-          flag = false;
+          groupDoesNotExist = false;
         }
       }
-      if (flag) {
+      if (groupDoesNotExist) {
         System.out.println("Такой группы нет.");
       }
       System.out.println();

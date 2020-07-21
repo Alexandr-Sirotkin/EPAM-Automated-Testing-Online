@@ -14,7 +14,6 @@ import EpamLearn.FundamentalsModule.OptionalTask1FundamentalsModule;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class Runner {
 
   static List<? extends Car> cars = Arrays.asList(
@@ -44,22 +43,18 @@ public class Runner {
 
   public static void main(String[] args) {
 
-//    MainTaskFundamentalsModule mainTaskFundamentalsModule = new MainTaskFundamentalsModule();
-//    mainTaskFundamentalsModule.runAllTasks(args);
-//
-//    OptionalTask1FundamentalsModule optionalTask1FundamentalsModule = new OptionalTask1FundamentalsModule();
-//    optionalTask1FundamentalsModule.runAllTasks();
-//
-//    CalculationsMainTaskClassesModule calculationsMainTaskClassesModule = new CalculationsMainTaskClassesModule();
-//    calculationsMainTaskClassesModule.runAllTasks();
+    MainTaskFundamentalsModule mainTaskFundamentalsModule = new MainTaskFundamentalsModule();
+    mainTaskFundamentalsModule.runAllTasks(args);
+    OptionalTask1FundamentalsModule optionalTask1FundamentalsModule = new OptionalTask1FundamentalsModule();
+    optionalTask1FundamentalsModule.runAllTasks();
 
-//    TaxiStation taxiStation = new TaxiStation(cars);
-//    taxiStation.runAllTasks(cars);
+    CalculationsMainTaskClassesModule calculationsMainTaskClassesModule = new CalculationsMainTaskClassesModule();
+    calculationsMainTaskClassesModule.runAllTasks();
 
+    TaxiStation taxiStation = new TaxiStation(cars);
+    taxiStation.runAllTasks(cars);
     OptionalTaskCollectionsModule optionalTaskCollectionsModule = new OptionalTaskCollectionsModule();
     optionalTaskCollectionsModule.runAllTasks();
 
-
   }
-
 }

@@ -122,7 +122,7 @@ public class Student {
         "phone: " + phone + "; " + "\n" +
         "faculty: " + getFaculty() + "; " + "\n" +
         "course: " + course + "; " + "\n" +
-        "group: " + group + "."+ "\n";
+        "group: " + group + "." + "\n";
   }
 
   public boolean equalsFaculty(String faculty) {

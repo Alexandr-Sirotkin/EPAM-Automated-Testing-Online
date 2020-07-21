@@ -15,7 +15,7 @@ public class TaxiStation {
     this.cars = cars;
   }
 
-  public void runAllTasks(List<? extends Car> cars){
+  public void runAllTasks(List<? extends Car> cars) {
     TaxiStation taxiStation = new TaxiStation(cars);
     taxiStation.printCostOfCarPark();
     taxiStation.printSortCarByFuelConsumption();
@@ -62,6 +62,7 @@ public class TaxiStation {
       } else {
         System.out.println("Неверно заданы границы скорости.");
       }
+      System.out.println();
     } catch (Exception e) {
       e.printStackTrace();
     }

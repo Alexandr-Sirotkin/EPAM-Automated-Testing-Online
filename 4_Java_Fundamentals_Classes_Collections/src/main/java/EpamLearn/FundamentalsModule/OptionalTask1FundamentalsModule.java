@@ -1,18 +1,15 @@
 package EpamLearn.FundamentalsModule;
 
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class OptionalTask1FundamentalsModule {
 
-  static int number;
-  static int[] array;
+  private static int number;
+  private static int[] array;
 
   public void runAllTasks() {
-
     OptionalTask1FundamentalsModule task = new OptionalTask1FundamentalsModule();
     task.enterNumbersConsole();
     task.findShortestAndLongestNumber();
@@ -31,7 +28,6 @@ public class OptionalTask1FundamentalsModule {
       for (int i = 0; i < number; i++) {
         array[i] = Integer.parseInt(reader.readLine());
       }
-//      reader.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -62,100 +58,100 @@ public class OptionalTask1FundamentalsModule {
   }
 
   public void printNumbersInAscendingAndDescendingValuesLength() {
-
     System.out.println("2.Вывести числа в порядке возрастания (убывания) значений их длины.");
     int[] lengtharray = new int[number];
     for (int i = 0; i < number; i++) {
-      lengtharray[i] = (array[i]+"").length();
+      lengtharray[i] = (array[i] + "").length();
     }
-    for (int i = 0; i < lengtharray.length-1; i++) {
-      for (int j = lengtharray.length-1; j > i; j--) {
-        if (lengtharray[j] < lengtharray[j-1]){
-          int tmp1 = lengtharray[j];
-          lengtharray[j] = lengtharray[j-1];
-          lengtharray[j-1] = tmp1;
-          int tmp2 = array[j];
-          array[j] = array[j-1];
-          array[j-1] = tmp2;
+    for (int i = 0; i < lengtharray.length - 1; i++) {
+      for (int j = lengtharray.length - 1; j > i; j--) {
+        if (lengtharray[j] < lengtharray[j - 1]) {
+          int temp1 = lengtharray[j];
+          lengtharray[j] = lengtharray[j - 1];
+          lengtharray[j - 1] = temp1;
+          int temp2 = array[j];
+          array[j] = array[j - 1];
+          array[j - 1] = temp2;
         }
       }
     }
     System.out.println("Числа в порядке возрастания значений их длины:");
-    for (int element:array) {
+    for (int element : array) {
       System.out.println(element);
     }
     System.out.println("Числа в порядке убывания значений их длины:");
-    for (int i = array.length-1; i >= 0; i--) {
+    for (int i = array.length - 1; i >= 0; i--) {
       System.out.println(array[i]);
     }
     System.out.println();
   }
 
-  public void printNumbersWhoseLengthLessOrGreaterThanAverageLength(){
-
-    System.out.println("3.Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.");
-    int[] lengtharray = new int[number];
+  public void printNumbersWhoseLengthLessOrGreaterThanAverageLength() {
+    System.out.println(
+        "3.Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.");
+    int[] lengthArray = new int[number];
     for (int i = 0; i < number; i++) {
-      lengtharray[i] = (array[i]+"").length();
+      lengthArray[i] = (array[i] + "").length();
     }
     int sum = 0;
-    for (int i = 0; i < lengtharray.length; i++) {
-      sum = sum + lengtharray[i];
+    for (int i = 0; i < lengthArray.length; i++) {
+      sum = sum + lengthArray[i];
     }
-    double medium = sum/(number*1.0);
+    double medium = sum / (number * 1.0);
     System.out.println("Числа, длина которых, меньше средней длины по всем числам:");
-    boolean flag1 = true;
-    for (int i = 0; i < lengtharray.length; i++) {
-      if (lengtharray[i] < medium){
+    boolean thereArenotNumbersWhoseLengthIsLessThanAverageLengthForAllNumbers = true;
+    for (int i = 0; i < lengthArray.length; i++) {
+      if (lengthArray[i] < medium) {
         System.out.println(array[i]);
-        flag1 = false;
+        thereArenotNumbersWhoseLengthIsLessThanAverageLengthForAllNumbers = false;
       }
     }
-    if (flag1) {
+    if (thereArenotNumbersWhoseLengthIsLessThanAverageLengthForAllNumbers) {
       System.out.println("Таких чисел нет.");
     }
     System.out.println();
     System.out.println("Числа, длина которых, больше средней длины по всем числам:");
-    boolean flag2 = true;
-    for (int i = 0; i < lengtharray.length; i++) {
-      if (lengtharray[i] > medium){
+    boolean thereArenotNumbersWhoseLengthIsGreaterThanAverageLengthForAllNumbers = true;
+    for (int i = 0; i < lengthArray.length; i++) {
+      if (lengthArray[i] > medium) {
         System.out.println(array[i]);
-        flag2 = false;
+        thereArenotNumbersWhoseLengthIsGreaterThanAverageLengthForAllNumbers = false;
       }
     }
-    if (flag2) {
+    if (thereArenotNumbersWhoseLengthIsGreaterThanAverageLengthForAllNumbers) {
       System.out.println("Таких чисел нет.");
     }
     System.out.println();
   }
 
-  public void findNumberInWhichNumberOfDifferentDigitsIsMinimal(){
-    System.out.println("4.Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
-    char[] a = (array[0] + "").toCharArray();
-    Arrays.sort(a);
-    int differentDigitsCounter = 1;
-    for (int j = 0; j < a.length-1; j++) {
-      if (a[j] != a[j+1]){
-        differentDigitsCounter++;
+  public void findNumberInWhichNumberOfDifferentDigitsIsMinimal() {
+    System.out.println(
+        "4.Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
+    char[] arrayOfTheFirstNumber = (array[0] + "").toCharArray();
+    Arrays.sort(arrayOfTheFirstNumber);
+    int differentDigitsCounterOfRequiredNumber = 1;
+    for (int j = 0; j < arrayOfTheFirstNumber.length - 1; j++) {
+      if (arrayOfTheFirstNumber[j] != arrayOfTheFirstNumber[j + 1]) {
+        differentDigitsCounterOfRequiredNumber++;
       }
     }
-    int x = array[0];
+    int numberInWhichAmountOfDifferentDigitsMinimum = array[0];
     for (int i = 1; i < array.length; i++) {
-      char[] b = (array[i] + "").toCharArray();
-      Arrays.sort(b);
-      int counter = 1;
-      for (int j = 0; j < b.length-1; j++) {
-        if (b[j] != b[j+1]){
-          counter++;
+      char[] arrayOfNumber = (array[i] + "").toCharArray();
+      Arrays.sort(arrayOfNumber);
+      int differentDigitsCounter = 1;
+      for (int j = 0; j < arrayOfNumber.length - 1; j++) {
+        if (arrayOfNumber[j] != arrayOfNumber[j + 1]) {
+          differentDigitsCounter++;
         }
       }
-      if (counter < differentDigitsCounter){
-        differentDigitsCounter = counter;
-        x = array[i];
+      if (differentDigitsCounter < differentDigitsCounterOfRequiredNumber) {
+        differentDigitsCounterOfRequiredNumber = differentDigitsCounter;
+        numberInWhichAmountOfDifferentDigitsMinimum = array[i];
       }
     }
-    System.out.println("Число, в котором количество различных цифр минимально: " + x);
+    System.out.println("Число, в котором количество различных цифр минимально: "
+        + numberInWhichAmountOfDifferentDigitsMinimum);
     System.out.println();
   }
-
 }

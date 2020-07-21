@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 public class MainTaskFundamentalsModule {
 
   public void runAllTasks(String[] args) {
-
     MainTaskFundamentalsModule task = new MainTaskFundamentalsModule();
     task.welcomeUser();
     task.showCommandLineArgumentsInReverseOrder(args);
@@ -14,16 +13,12 @@ public class MainTaskFundamentalsModule {
     task.printNumbersWithoutNewline();
     task.sumAndMultiplyOfCommandLineArguments(args);
     task.printNameMonthCorrespondingNumber();
-
   }
 
-
   public void welcomeUser() {
-
     System.out.println(
         "1. Приветствовать любого пользователя при вводе его имени через командную строку.");
     System.out.println("Введите ваше имя:");
-
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       String name = reader.readLine();
@@ -35,10 +30,8 @@ public class MainTaskFundamentalsModule {
   }
 
   public void showCommandLineArgumentsInReverseOrder(String[] args) {
-
     System.out
         .println("2.Отобразить в окне консоли аргументы командной строки в обратном порядке.");
-
     if (args.length != 0) {
       for (int i = args.length - 1; i >= 0; i--) {
         System.out.print(args[i] + " ");
@@ -51,11 +44,9 @@ public class MainTaskFundamentalsModule {
   }
 
   public void printNumbersWithLineBreak() {
-
     System.out
         .println("3.1. Вывести заданное количество случайных чисел с переходом на новую строку.");
     System.out.println("Введите количество случайных чисел:");
-
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       int numbers = Integer.parseInt(reader.readLine());
@@ -71,11 +62,9 @@ public class MainTaskFundamentalsModule {
   }
 
   public void printNumbersWithoutNewline() {
-
     System.out
         .println("3.2. Вывести заданное количество случайных чисел без перехода на новую строку.");
     System.out.println("Введите количество случайных чисел:");
-
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       int numbers = Integer.parseInt(reader.readLine());
@@ -89,7 +78,6 @@ public class MainTaskFundamentalsModule {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
   public void sumAndMultiplyOfCommandLineArguments(String[] args) {
@@ -116,7 +104,6 @@ public class MainTaskFundamentalsModule {
     System.out.println(
         "5.Ввести число от 1 до 12. Вывести на консоль название месяца, соответствующего данному числу. Осуществить проверку корректности ввода чисел.");
     System.out.println("Введите число от 1 до 12:");
-
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
       int number = Integer.parseInt(reader.readLine());
@@ -160,12 +147,9 @@ public class MainTaskFundamentalsModule {
         default:
           System.out.println("Неверно задано число.");
       }
-
     } catch (Exception e) {
       e.printStackTrace();
     }
     System.out.println();
-
   }
-
 }

@@ -8,7 +8,7 @@
 /1_Version_Control_with_Git/bin
 
 
-
+# for other modules the gitignore file is in the root of the projects
 
 
 /target/

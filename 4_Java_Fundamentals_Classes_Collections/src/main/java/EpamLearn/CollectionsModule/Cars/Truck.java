@@ -3,7 +3,7 @@ package EpamLearn.CollectionsModule.Cars;
 import EpamLearn.CollectionsModule.Type.Species;
 import EpamLearn.CollectionsModule.Type.TruckBodyType;
 
-public class Truck extends Car{
+public class Truck extends Car {
 
   private TruckBodyType bodyType;
 

@@ -95,5 +95,4 @@ public class OptionalTaskCollectionsModule {
       System.out.println(line);
     }
   }
-
 }
