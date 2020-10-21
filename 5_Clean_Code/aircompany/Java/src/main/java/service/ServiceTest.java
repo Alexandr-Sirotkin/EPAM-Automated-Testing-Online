@@ -10,13 +10,18 @@ import models.MilitaryType;
 public class ServiceTest {
 
   public boolean checkGetTransportMilitaryPlanes(List<MilitaryPlane> transportMilitaryPlanes) {
-    boolean hasTransportMilitaryPlanes = false;
-    for (MilitaryPlane militaryPlane : transportMilitaryPlanes) {
-      if ((militaryPlane.getType() == MilitaryType.TRANSPORT)) {
-        hasTransportMilitaryPlanes = true;
+    boolean onlyTransportInTheList = true;
+    if (transportMilitaryPlanes.isEmpty()) {
+      onlyTransportInTheList = false;
+    } else {
+      for (MilitaryPlane militaryPlane : transportMilitaryPlanes) {
+        if (militaryPlane.getType() != MilitaryType.TRANSPORT) {
+          onlyTransportInTheList = false;
+          break;
+        }
       }
     }
-    return hasTransportMilitaryPlanes;
+    return onlyTransportInTheList;
   }
 
   public boolean confirmSortByMaxLoadCapacity(List<? extends Plane> planesSortedByMaxLoadCapacity) {
@@ -31,15 +36,20 @@ public class ServiceTest {
     return nextPlaneMaxLoadCapacityIsHigherThanCurrent;
   }
 
-  public boolean confirmHasAtLeastOneBomberInMilitaryPlanes(
+  public boolean confirmBomberMilitaryPlanes(
       List<MilitaryPlane> bomberMilitaryPlanes) {
-    boolean hasAtLeastOneBomberInMilitaryPlanes = false;
-    for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
-      if ((militaryPlane.getType() == MilitaryType.BOMBER)) {
-        hasAtLeastOneBomberInMilitaryPlanes = true;
+    boolean onlyBombersInTheList = true;
+    if (bomberMilitaryPlanes.isEmpty()) {
+      onlyBombersInTheList = false;
+    } else {
+      for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
+        if (militaryPlane.getType() != MilitaryType.BOMBER) {
+          onlyBombersInTheList = false;
+          break;
+        }
       }
     }
-    return hasAtLeastOneBomberInMilitaryPlanes;
+    return onlyBombersInTheList;
   }
 
   public boolean confirmHasUnclassifiedPlanes(

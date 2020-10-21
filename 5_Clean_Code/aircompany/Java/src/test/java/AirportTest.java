@@ -61,10 +61,10 @@ public class AirportTest {
   }
 
   @Test
-  public void testHasAtLeastOneBomberInMilitaryPlanes() {
+  public void testGetBomberMilitaryPlanes() {
     Airport airport = new Airport(planes);
     Assert.assertTrue(
-        service.confirmHasAtLeastOneBomberInMilitaryPlanes(airport.getBomberMilitaryPlanes()));
+        service.confirmBomberMilitaryPlanes(airport.getBomberMilitaryPlanes()));
   }
 
   @Test

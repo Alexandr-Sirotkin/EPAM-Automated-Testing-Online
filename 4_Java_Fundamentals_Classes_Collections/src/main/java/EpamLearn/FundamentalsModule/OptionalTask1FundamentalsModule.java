@@ -37,17 +37,19 @@ public class OptionalTask1FundamentalsModule {
     System.out.println(
         "1.Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.");
     int shortestNumber = array[0];
-    int lengthMin = (array[0] + "").length();
-    int longestNumber = array[0];
-    int lengthMax = (array[0] + "").length();
+    String shortestNumberAsString = String.valueOf(array[0]);
+    int lengthMin = shortestNumberAsString.length();
+    int longestNumber = shortestNumber;
+    int lengthMax = lengthMin;
     for (int i = 0; i < number; i++) {
-      if ((array[i] + "").length() < lengthMin) {
+      String numberAsString = String.valueOf(array[i]);
+      if (numberAsString.length() < lengthMin) {
         shortestNumber = array[i];
-        lengthMin = (array[i] + "").length();
+        lengthMin = numberAsString.length();
       }
-      if ((array[i] + "").length() > lengthMax) {
+      if (numberAsString.length() > lengthMax) {
         longestNumber = array[i];
-        lengthMax = (array[i] + "").length();
+        lengthMax = numberAsString.length();
       }
     }
     System.out.println(
@@ -61,7 +63,7 @@ public class OptionalTask1FundamentalsModule {
     System.out.println("2.Вывести числа в порядке возрастания (убывания) значений их длины.");
     int[] lengtharray = new int[number];
     for (int i = 0; i < number; i++) {
-      lengtharray[i] = (array[i] + "").length();
+      lengtharray[i] = String.valueOf(array[i]).length();
     }
     for (int i = 0; i < lengtharray.length - 1; i++) {
       for (int j = lengtharray.length - 1; j > i; j--) {
@@ -91,7 +93,7 @@ public class OptionalTask1FundamentalsModule {
         "3.Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.");
     int[] lengthArray = new int[number];
     for (int i = 0; i < number; i++) {
-      lengthArray[i] = (array[i] + "").length();
+      lengthArray[i] = String.valueOf(array[i]).length();
     }
     int sum = 0;
     for (int i = 0; i < lengthArray.length; i++) {
@@ -127,7 +129,7 @@ public class OptionalTask1FundamentalsModule {
   public void findNumberInWhichNumberOfDifferentDigitsIsMinimal() {
     System.out.println(
         "4.Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
-    char[] arrayOfTheFirstNumber = (array[0] + "").toCharArray();
+    char[] arrayOfTheFirstNumber = String.valueOf(array[0]).toCharArray();
     Arrays.sort(arrayOfTheFirstNumber);
     int differentDigitsCounterOfRequiredNumber = 1;
     for (int j = 0; j < arrayOfTheFirstNumber.length - 1; j++) {
@@ -137,7 +139,7 @@ public class OptionalTask1FundamentalsModule {
     }
     int numberInWhichAmountOfDifferentDigitsMinimum = array[0];
     for (int i = 1; i < array.length; i++) {
-      char[] arrayOfNumber = (array[i] + "").toCharArray();
+      char[] arrayOfNumber = String.valueOf(array[i]).toCharArray();
       Arrays.sort(arrayOfNumber);
       int differentDigitsCounter = 1;
       for (int j = 0; j < arrayOfNumber.length - 1; j++) {

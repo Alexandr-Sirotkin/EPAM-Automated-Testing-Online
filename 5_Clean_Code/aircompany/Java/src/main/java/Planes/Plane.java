@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public abstract class Plane {
 
-  String model;
+  private String model;
   private int maxSpeed;
   private int maxFlightDistance;
   private int maxLoadCapacity;
@@ -26,6 +26,10 @@ public abstract class Plane {
 
   public int getMinLoadCapacity() {
     return this.maxLoadCapacity;
+  }
+
+  public String getModel() {
+    return model;
   }
 
   @Override

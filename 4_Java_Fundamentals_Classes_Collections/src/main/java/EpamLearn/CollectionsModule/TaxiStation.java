@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TaxiStation {
@@ -32,8 +33,7 @@ public class TaxiStation {
   }
 
   public void printSortCarByFuelConsumption() {
-    Collections.sort(cars,
-        (o1, o2) -> (int) (10 * (o1.getFuelConsumption()) - 10 * (o2.getFuelConsumption())));
+    Collections.sort(cars, Comparator.comparingDouble(Car::getFuelConsumption));
     System.out.println("Сортировка автомобилей парка по расходу топлива:");
     System.out.println(cars);
     System.out.println();
